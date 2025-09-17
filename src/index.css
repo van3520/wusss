@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 16% 22%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 16% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 16% 22%;
+
+    /* Educational Blue - Primary */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 214 100% 92%;
+    --primary-dark: 214 84% 46%;
+
+    /* Action Red - Secondary */
+    --secondary: 0 84% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 0 100% 95%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 214 100% 92%;
+    --accent-foreground: 214 84% 56%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 84% 56%;
+
+    /* Educational gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 46%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 84% 56%), hsl(0 84% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    
+    /* Educational shadows */
+    --shadow-card: 0 4px 12px -2px hsl(214 84% 56% / 0.08);
+    --shadow-elevated: 0 8px 25px -5px hsl(214 84% 56% / 0.12);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 27% 18%;
+    --foreground: 220 9% 95%;
+
+    --card: 220 27% 18%;
+    --card-foreground: 220 9% 95%;
+
+    --popover: 220 27% 18%;
+    --popover-foreground: 220 9% 95%;
+
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 214 84% 26%;
+    --primary-dark: 214 84% 66%;
+
+    --secondary: 0 84% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 0 84% 30%;
+
+    --muted: 220 20% 25%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 220 20% 25%;
+    --accent-foreground: 214 84% 56%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 214 84% 56%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 46%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 84% 56%), hsl(0 84% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(220 27% 18%), hsl(220 20% 20%));
+    
+    --shadow-card: 0 4px 12px -2px hsl(0 0% 0% / 0.25);
+    --shadow-elevated: 0 8px 25px -5px hsl(0 0% 0% / 0.35);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .educational-card {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .educational-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .btn-hero {
+    @apply px-8 py-4 rounded-lg font-semibold text-base transition-all duration-300;
+    background: var(--gradient-hero);
+    color: white;
+    border: none;
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+  }
+
+  .new-badge {
+    @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full;
+    background: var(--gradient-primary);
+    color: white;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .video-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300 cursor-pointer;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .video-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-elevated);
+  }
+}
