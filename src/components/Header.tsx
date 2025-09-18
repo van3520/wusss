@@ -49,8 +49,6 @@ const Header = () => {
             WUSS
           </motion.span>
 
-          {/* NO Text */}
-          <span className="text-gray-600 text-xl font-bold">NO</span>
         </div>
 
         {/* Desktop Navigation */}
