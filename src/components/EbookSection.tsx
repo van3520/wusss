@@ -14,7 +14,7 @@ const EbookSection = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   // URL PDF di folder public
-  const ebookURL = "/pdf/Literasi_Finansial_Sebagai_Kecakapan_Hidup.pdf";
+  const ebookURL = "/pdf/SmartMoney.pdf";
 
   return (
     <section id="ebook" className="py-20 bg-gray-100">
@@ -57,6 +57,13 @@ const EbookSection = () => {
                     <BookOpen className="mr-2 h-5 w-5" /> View E-book
                   </button>
 
+                  <a
+                    href={ebookURL}
+                    download
+                    className="flex-1 bg-pink-400 hover:bg-pink-500 text-white font-bold shadow-lg rounded-lg px-4 py-2 transition-transform hover:scale-105 flex items-center justify-center"
+                  >
+                    <Download className="mr-2 h-5 w-5" /> Download E-book
+                  </a>
                 </div>
               </CardContent>
             </Card>

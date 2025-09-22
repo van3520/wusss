@@ -72,7 +72,7 @@ const QuizSection = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
-  const [score, setScore] = useState(0);
+  const [quizScore, setQuizScore] = useState(0); // skor untuk 1 quiz
   const [playerName, setPlayerName] = useState("");
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>(initialLeaderboard);
 
@@ -80,49 +80,54 @@ const QuizSection = () => {
     if (!playerName) return alert("Enter your name!");
     setCurrentQuiz(quiz);
     setCurrentQuestion(0);
-    setScore(0);
     setSelectedAnswer(null);
     setShowResult(false);
+    setQuizScore(0); // reset skor quiz baru
   };
 
   const handleAnswerSelect = (index: number) => setSelectedAnswer(index);
 
   const handleNextQuestion = () => {
     if (!currentQuiz) return;
-    let updatedScore = score;
-    if (selectedAnswer === currentQuiz.questions[currentQuestion].correct) updatedScore += 1;
+    let updatedQuizScore = quizScore;
+
+    // tambah skor jika jawaban benar
+    if (selectedAnswer === currentQuiz.questions[currentQuestion].correct) {
+      updatedQuizScore += 1;
+    }
 
     if (currentQuestion < currentQuiz.questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
       setShowResult(false);
-      setScore(updatedScore);
+      setQuizScore(updatedQuizScore);
     } else {
+      // Quiz selesai → update leaderboard
       const updatedLeaderboard = [...leaderboard];
       const playerIndex = updatedLeaderboard.findIndex(l => l.name === playerName);
       if (playerIndex >= 0) {
-        updatedLeaderboard[playerIndex].score = updatedScore;
+        // tambahkan skor quiz ini ke total sebelumnya
+        updatedLeaderboard[playerIndex].score += updatedQuizScore;
         updatedLeaderboard[playerIndex].doneQuizzes = updatedLeaderboard[playerIndex].doneQuizzes || [];
         if (!updatedLeaderboard[playerIndex].doneQuizzes!.includes(currentQuiz.id)) {
           updatedLeaderboard[playerIndex].doneQuizzes!.push(currentQuiz.id);
         }
       } else {
-        updatedLeaderboard.push({ name: playerName, score: updatedScore, doneQuizzes:[currentQuiz.id] });
+        updatedLeaderboard.push({ name: playerName, score: updatedQuizScore, doneQuizzes:[currentQuiz.id] });
       }
       setLeaderboard(updatedLeaderboard.sort((a,b)=>b.score-a.score).slice(0,10));
-      alert(`Quiz completed! Score: ${updatedScore}/${currentQuiz.questions.length}`);
+      alert(`Quiz completed! You got ${updatedQuizScore} points in this quiz.`);
       setCurrentQuiz(null);
     }
   };
 
   const showAnswer = () => setShowResult(true);
 
-  // Background Gradient untuk QuizSection
   const sectionStyle = {
     background: "linear-gradient(135deg, rgba(251,191,211,0.2), rgba(229,231,235,0.15), rgba(22,163,74,0.2))"
   };
 
-  // Pilih quiz view
+  // Tampilan pilih quiz
   if (!currentQuiz) {
     return (
       <section id="quiz" className="py-16 px-6 relative overflow-hidden" style={sectionStyle}>
@@ -167,16 +172,24 @@ const QuizSection = () => {
     );
   }
 
-  // Quiz view
+  // Tampilan quiz
   const question = currentQuiz.questions[currentQuestion];
   if (!question) return null;
+
+  // cari skor total dari leaderboard
+  const playerTotalScore = leaderboard.find(l => l.name === playerName)?.score ?? 0;
 
   return (
     <section id="quiz" className="py-16 px-6 relative overflow-hidden" style={sectionStyle}>
       <div className="max-w-6xl mx-auto relative z-10 grid lg:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-3xl font-bold mb-4 text-pink-500">{currentQuiz.title}</h2>
-          <h3 className="text-xl font-semibold mb-2 text-green-900">Question {currentQuestion+1}/{currentQuiz.questions.length}</h3>
+          <h2 className="text-3xl font-bold mb-2 text-pink-500">{currentQuiz.title}</h2>
+          <h3 className="text-xl font-semibold mb-2 text-green-900">
+            Question {currentQuestion+1}/{currentQuiz.questions.length}
+          </h3>
+          <p className="mb-2 font-semibold text-blue-700">
+            Score in this quiz: {quizScore} | Total Score: {playerTotalScore}
+          </p>
           <p className="mb-4">{question.question}</p>
           <div className="space-y-3">
             {question.options.map((opt,i)=>(
@@ -201,7 +214,6 @@ const QuizSection = () => {
           </div>
         </div>
 
-        {/* Leaderboard */}
         <div>
           <h3 className="text-2xl font-bold mb-4 text-center text-pink-500">Leaderboard</h3>
           <ul className="space-y-2">
