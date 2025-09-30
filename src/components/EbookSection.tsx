@@ -18,7 +18,7 @@ const EbookSection = () => {
   const ebookURL = "/pdf/SmartMoney.pdf";
 
   // Image What's Inside
-  const insideImage = "../src/assets/komik.jpg"; // ganti dengan path gambar kamu
+  const insideImage = "/komik.jpg"; // ganti dengan path gambar kamu
 
   return (
     <section id="ebook" className="py-20 bg-gray-100">
