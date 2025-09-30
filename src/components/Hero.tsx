@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, ChevronUp } from "lucide-react";
+import { ArrowRight, Play, ChevronUp, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-financial-education.png";
 
@@ -118,7 +118,6 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            {/* Image */}
             <motion.div
               className="relative rounded-3xl overflow-hidden shadow-2xl w-full max-w-md mx-auto lg:mx-0"
               initial={{ scale: 0.95, opacity: 0 }}
@@ -165,7 +164,7 @@ const Hero = () => {
               >
                 <Play className="mr-2 h-6 w-6" />
                 Watch Videos
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
 
               <Button
@@ -193,9 +192,28 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <h2 className="text-3xl font-bold text-center text-green-900 mb-6">
-              Financial Planner
-            </h2>
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-bold text-green-900">
+                Financial Planner
+              </h2>
+                {/* Android App Button */}
+                <div className="flex justify-center mb-6">
+                  <a
+                    href="/wuss.apk"
+                    download
+                    className="relative inline-flex items-center gap-3 px-8 py-4 
+                              text-lg font-bold text-white rounded-full
+                              bg-gradient-to-r from-[#3DDC84] to-green-700
+                              shadow-lg hover:shadow-2xl hover:scale-105
+                              transition-transform duration-300"
+                  >
+                    {/* Icon Android */}
+                    <span className="text-2xl">🤖</span>
+                    <span>Download Aplikasi Android</span>
+                  </a>
+                </div>
+                 
+            </div>
 
             {/* Input */}
             <div className="flex flex-col sm:flex-row gap-3 mb-6">

@@ -132,7 +132,9 @@ const FinancialPlanner = () => {
                     : "bg-pink-200 border-pink-400 text-pink-900"
                 }`}
               >
-                <span className="font-semibold">{t.type === "income" ? "Income 💰" : "Expense 🛒"}</span>
+                <span className="font-semibold">
+                  {t.type === "income" ? "Income 💰" : "Expense 🛒"}
+                </span>
                 <span className="font-bold">
                   {t.amount.toLocaleString("id-ID", {
                     style: "currency",
@@ -159,6 +161,23 @@ const FinancialPlanner = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Download APK Button */}
+        <div className="mt-10 text-center">
+          <a
+            href="/app-release.apk"
+            download
+            className="inline-block bg-gradient-to-r from-pink-400 via-purple-400 to-green-500 
+                       hover:from-pink-500 hover:via-purple-500 hover:to-green-600
+                       text-white font-bold px-8 py-3 rounded-3xl shadow-lg 
+                       transition-transform hover:scale-110"
+          >
+            📥 Download Aplikasi (APK)
+          </a>
+          <p className="mt-2 text-sm text-gray-100">
+            Klik tombol di atas untuk mengunduh aplikasi versi terbaru
+          </p>
         </div>
       </div>
     </section>

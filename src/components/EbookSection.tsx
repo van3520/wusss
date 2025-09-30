@@ -4,33 +4,41 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Star, Clock, BookOpen, Download, X } from "lucide-react";
 import ebookCover from "@/assets/ebook-cover.jpg";
 
-const features = [
-  { icon: BookOpen, title: "Comprehensive Guide", description: "200+ pages of in-depth financial education content" },
-  { icon: BookOpen, title: "Practical Exercises", description: "Hands-on activities to apply what you learn" },
-  { icon: Star, title: "Expert Insights", description: "Tips and strategies from financial professionals" }
-];
-
 const EbookSection = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [isImageOpen, setIsImageOpen] = useState(false);
 
-  // URL PDF di folder public
   const ebookURL = "/pdf/SmartMoney.pdf";
+  const insideImage = "/komik.jpg";
 
-  // Image What's Inside
-  const insideImage = "/komik.jpg"; // ganti dengan path gambar kamu
+  // Fungsi download PDF
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = ebookURL;
+    link.download = "SmartMoney.pdf";
+    link.click();
+  };
 
   return (
-    <section id="ebook" className="py-20 bg-gray-100">
+    <section id="ebook" className="py-20 bg-gray-100 relative overflow-hidden">
+      {/* Decorative shapes */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-200 rounded-full opacity-10 pointer-events-none"></div>
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-green-300 rounded-full opacity-10 pointer-events-none"></div>
+
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* E-book Preview */}
-          <div className="animate-scale-in">
-            <Card className="educational-card rounded-xl overflow-hidden shadow-2xl relative">
+          <div className="animate-scale-in relative">
+            <Card className="rounded-xl overflow-hidden shadow-2xl relative hover:shadow-3xl transition-shadow duration-300">
+              {/* Badge */}
+              <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10">
+                Bestseller
+              </div>
+
               <div className="relative">
-                <img src={ebookCover} alt="Ebook Cover" className="w-full h-96 object-cover" />
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-black/20"></div>
+                <img src={ebookCover} alt="Ebook Cover" className="w-full h-96 object-cover rounded-t-xl" />
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-black/20 rounded-b-xl"></div>
                 <div className="absolute bottom-4 left-4">
                   <h3 className="text-2xl font-bold mb-1 text-pink-400 drop-shadow-lg">
                     Complete Financial Guide
@@ -61,13 +69,12 @@ const EbookSection = () => {
                     <BookOpen className="mr-2 h-5 w-5" /> View E-book
                   </button>
 
-                  <a
-                    href={ebookURL}
-                    download
+                  <button
+                    onClick={handleDownload}
                     className="flex-1 bg-pink-400 hover:bg-pink-500 text-white font-bold shadow-lg rounded-lg px-4 py-2 transition-transform hover:scale-105 flex items-center justify-center"
                   >
                     <Download className="mr-2 h-5 w-5" /> Download E-book
-                  </a>
+                  </button>
                 </div>
               </CardContent>
             </Card>
@@ -75,36 +82,38 @@ const EbookSection = () => {
 
           {/* Content */}
           <div className="animate-fade-in">
-            <h2 className="text-4xl font-extrabold text-pink-400 mb-6">Complete Financial Literacy Guide</h2>
+            <h2 className="text-4xl font-extrabold text-pink-400 mb-6">
+              Financial Literacy Guide for Middle School Students
+            </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Download our comprehensive e-book packed with practical strategies, real-world examples, and actionable tips to master your finances.
+              Get this easy-to-read e-book that helps you learn how to manage your pocket money, save wisely, and understand basic finance in a fun and simple way.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              {features.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center text-center p-4 bg-gray-200 rounded-xl shadow hover:shadow-xl transform hover:scale-105 transition-all"
-                >
-                  <div className="w-14 h-14 flex items-center justify-center rounded-full bg-pink-100 mb-3">
-                    <feature.icon className="h-7 w-7 text-pink-400" />
-                  </div>
-                  <h3 className="font-semibold text-green-800 mb-1">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm">{feature.description}</p>
-                </div>
-              ))}
-            </div>
+            <ul className="space-y-3 text-gray-700 mb-8">
+              <li className="flex items-center">
+                <Star className="text-pink-400 mr-2" /> How to save and manage pocket money
+              </li>
+              <li className="flex items-center">
+                <BookOpen className="text-green-800 mr-2" /> Understanding needs vs wants
+              </li>
+              <li className="flex items-center">
+                <Clock className="text-yellow-500 mr-2" /> Tips for making smart purchases
+              </li>
+              <li className="flex items-center">
+                <Users className="text-green-800 mr-2" /> How to create a simple money plan
+              </li>
+            </ul>
 
             {/* What's Inside (Image Only) */}
-            <Card className="border-2 border-green-800 bg-gray-200 rounded-xl">
+            <Card className="border-2 border-green-800 bg-gray-200 rounded-xl hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-lg text-green-800">Comic Ebook:</CardTitle>
+                <CardTitle className="text-lg text-green-800">Comic Ebook Preview:</CardTitle>
               </CardHeader>
               <CardContent>
                 <img
                   src={insideImage}
                   alt="What's Inside Preview"
-                  className="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition"
+                  className="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
                   onClick={() => setIsImageOpen(true)}
                 />
               </CardContent>
@@ -117,15 +126,12 @@ const EbookSection = () => {
       {isPreviewOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="relative w-full max-w-5xl h-[90vh] bg-white rounded-xl shadow-2xl overflow-hidden">
-            {/* Close Button */}
             <button
               onClick={() => setIsPreviewOpen(false)}
               className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full z-[60] shadow-lg"
             >
               <X className="h-5 w-5" />
             </button>
-
-            {/* PDF Viewer */}
             <iframe
               src={ebookURL}
               className="w-full h-full"
@@ -137,8 +143,14 @@ const EbookSection = () => {
 
       {/* Modal Image */}
       {isImageOpen && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-xl shadow-2xl overflow-auto">
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={() => setIsImageOpen(false)} // klik di backdrop menutup modal
+        >
+          <div
+            className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-xl shadow-2xl overflow-auto"
+            onClick={(e) => e.stopPropagation()} // klik di image tidak menutup modal
+          >
             {/* Close Button */}
             <button
               onClick={() => setIsImageOpen(false)}
@@ -147,7 +159,6 @@ const EbookSection = () => {
               <X className="h-5 w-5" />
             </button>
 
-            {/* Image Preview */}
             <img
               src={insideImage}
               alt="What's Inside Preview"

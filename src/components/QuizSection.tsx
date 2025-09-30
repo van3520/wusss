@@ -18,42 +18,59 @@ interface Quiz {
   }[];
 }
 
+// ==================== QUIZZES ====================
 const quizzes: Quiz[] = [
   {
     id: 1,
-    title: "Financial Basics",
+    title: "Financial Literacy Basics",
     questions: [
-      { question: "Save % of income?", options: ["5%", "10-20%", "30%"], correct: 1, explanation: "Save 10-20% of your income." },
-      { question: "Emergency fund is?", options: ["Vacation money","Unexpected expenses","Shopping"], correct: 1, explanation: "Set aside money for unexpected expenses." },
-      { question: "Compound interest?", options: ["Once","Principal+interest","Decreases"], correct: 1, explanation: "Interest on principal + interest." },
-      { question: "Best savings method?", options: ["Impulse buying","Automated saving","Lottery"], correct: 1, explanation: "Automate savings for consistency." },
-      { question: "Goal of budgeting?", options: ["Spend freely","Control money","Ignore"], correct: 1, explanation: "Budget helps control your money." }
+      { question: "You are a money detective 🔍. Why is it important to write down all your expenses?", options: ["So you forget where your money goes", "So you know where your money goes", "So you can spend more", "So you can confuse yourself"], correct: 1, explanation: "Tracking expenses helps you know where your money goes." },
+      { question: "Imagine you have a piggy bank or a bank account. That’s an example of…", options: ["Hiding money in your shoes", "Saving money wisely", "Spending money super fast", "Giving money away to strangers"], correct: 1, explanation: "Using a piggy bank or bank account is a smart way to save." },
+      { question: "If you spend more than your allowance, what happens?", options: ["Your savings grow bigger", "You go into debt", "You become rich instantly", "You get extra allowance"], correct: 1, explanation: "Spending more than you earn leads to debt." },
+      { question: "Why should you distinguish needs vs wants?", options: ["To spend all your money", "To make better spending decisions", "To borrow more", "To avoid saving"], correct: 1, explanation: "Separating needs and wants helps manage money wisely." },
+      { question: "Best saving habit is…", options: ["Save only leftovers", "Save first then spend", "Spend first then save", "Never save"], correct: 1, explanation: "Saving first before spending is the smartest habit." },
+      { question: "You get $50 as a gift. What’s the best action?", options: ["Spend all on snacks", "Save part for later", "Give it away", "Hide it randomly"], correct: 1, explanation: "Save part of gifts to plan ahead." },
+      { question: "Which is a financial goal?", options: ["Travel next year", "Spend without thinking", "Ignore savings", "Lend carelessly"], correct: 0, explanation: "Setting goals gives you something to save for." },
+      { question: "Why avoid borrowing too often?", options: ["Makes saving easier", "Can create debt problems", "Increases income", "Improves budgeting"], correct: 1, explanation: "Borrowing too much can lead to debt issues." },
+      { question: "Which shows impulse buying?", options: ["Buying planned", "Buying suddenly without thinking", "Saving for later", "Comparing prices"], correct: 1, explanation: "Impulse buying is unplanned and can hurt savings." },
+      { question: "Example of short-term saving?", options: ["Saving for lunch tomorrow", "Saving for a car in 5 years", "Saving for college", "Saving for a house"], correct: 0, explanation: "Short-term saving covers near-future needs." }
     ]
   },
   {
     id: 2,
-    title: "Investment Basics",
+    title: "Financial Literacy Basics 2",
     questions: [
-      { question: "Diversification?", options: ["Reduces risk","Increases risk","Guarantees profit"], correct: 0, explanation: "Diversification spreads risk." },
-      { question: "Stocks are?", options: ["Debt","Ownership","Loan"], correct: 1, explanation: "Stocks represent ownership." },
-      { question: "Bonds?", options: ["Equity","Debt","Commodity"], correct: 1, explanation: "Bonds are debt instruments." },
-      { question: "Mutual funds?", options: ["Single stock","Pool of assets","Loan"], correct: 1, explanation: "Mutual funds pool investments." },
-      { question: "Long-term investment?", options: ["High risk short term","Grow wealth over time","Spend today"], correct: 1, explanation: "Invest to grow wealth over time." }
+      { question: "What does financial planning mean?", options: ["Random spending", "Organizing money for goals", "Borrowing money from friends", "Spending money without record"], correct: 1, explanation: "Planning helps achieve financial goals." },
+      { question: "Why set a money limit before shopping?", options: ["To overspend", "To avoid overspending", "To impress others", "To borrow more"], correct: 1, explanation: "Limits prevent overspending." },
+      { question: "Which is NOT a smart saving method?", options: ["Avoid unnecessary purchases", "Compare prices", "Spend immediately", "Make a budget"], correct: 2, explanation: "Spending immediately is not smart." },
+      { question: "Best reason for emergency fund?", options: ["Fun trips", "Unexpected costs", "Avoid budgeting", "Borrow from others"], correct: 1, explanation: "Emergency funds cover unexpected costs." },
+      { question: "Example of income?", options: ["Allowance from parents", "Paying for lunch", "Buying a book", "Lending money"], correct: 0, explanation: "Allowance is income." },
+      { question: "Why not use all your money at once?", options: ["Have nothing left", "Keep money for future needs", "Make friends happy", "Borrow more"], correct: 1, explanation: "Keep money for future needs." },
+      { question: "Habit that builds wealth?", options: ["Save regularly & avoid debt", "Spend more than you earn", "Ignore savings", "Always buy newest items"], correct: 0, explanation: "Saving and avoiding debt builds wealth." },
+      { question: "Living within your means means…", options: ["Spend ≤ income", "Spend > income", "Borrow often", "Never save"], correct: 0, explanation: "Don't spend more than you earn." },
+      { question: "Tracking expenses results in…", options: ["Money lost", "Better budget control", "More debt", "Forget savings"], correct: 1, explanation: "Tracking helps control your budget." },
+      { question: "Comparing prices before buying…", options: ["Wastes money", "Gets best deal", "Adds debt", "Increases spending"], correct: 1, explanation: "Comparing helps save money." }
     ]
   },
   {
     id: 3,
-    title: "Budgeting",
+    title: "Financial Literacy Basics 3",
     questions: [
-      { question: "Track spending?", options: ["Memory","App/Notebook","Ask friends"], correct: 1, explanation: "Use app or notebook." },
-      { question: "Fixed expense?", options: ["Rent","Shopping","Entertainment"], correct: 0, explanation: "Regular payments like rent." },
-      { question: "Why budget?", options: ["Control money","Ignore","Spend more"], correct: 0, explanation: "Control your money." },
-      { question: "Necessary expense?", options: ["Food","Gadget","Vacation"], correct: 0, explanation: "Essentials are necessary." },
-      { question: "Discretionary spending?", options: ["Luxury","Rent","Bills"], correct: 0, explanation: "Luxury items are discretionary." }
+      { question: "Why can discounts be tricky?", options: ["Always save money", "May cause unnecessary purchases", "Always profitable", "No effect"], correct: 1, explanation: "Discounts can tempt unplanned purchases." },
+      { question: "Saving $5 daily for a month = ?", options: ["$50", "$150", "$300", "$500"], correct: 1, explanation: "$5 × 30 days = $150." },
+      { question: "Essential spending example?", options: ["Food", "Gadget", "Vacation"], correct: 0, explanation: "Essentials like food are necessary." },
+      { question: "Risk of careless credit card use?", options: ["Debt buildup", "More money", "Safe savings", "No problem"], correct: 0, explanation: "Careless credit usage can cause debt." },
+      { question: "Difference between saving & investing?", options: ["Save = store, Invest = grow", "Same", "Invest = lose", "Save = invest"], correct: 0, explanation: "Saving stores money, investing grows money." },
+      { question: "Why set financial goals?", options: ["To spend randomly", "To guide saving & spending", "To ignore budget", "To borrow"], correct: 1, explanation: "Goals guide financial decisions." },
+      { question: "Why track income & expenses?", options: ["Forget money", "Know where money goes", "Borrow more", "Ignore savings"], correct: 1, explanation: "Tracking helps manage finances." },
+      { question: "Example of discretionary spending?", options: ["Vacation", "Rent", "Groceries", "Utilities"], correct: 0, explanation: "Vacation is discretionary." },
+      { question: "Good saving strategy?", options: ["Save first, spend later", "Spend first, save later", "Never save", "Borrow to save"], correct: 0, explanation: "Save first ensures consistent saving." },
+      { question: "Why avoid impulse buying?", options: ["Saves money", "Lose money", "Makes friends happy", "No effect"], correct: 0, explanation: "Impulse buying reduces savings." }
     ]
   }
 ];
 
+// ==================== LEADERBOARD ====================
 const initialLeaderboard: LeaderboardEntry[] = [
   { name: "Alice", score: 5, doneQuizzes:[1] },
   { name: "Bob", score: 4, doneQuizzes:[2] },
@@ -67,6 +84,7 @@ const initialLeaderboard: LeaderboardEntry[] = [
   { name: "Jane", score: 0, doneQuizzes:[] }
 ];
 
+// ==================== COMPONENT ====================
 const QuizSection = () => {
   const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -91,7 +109,6 @@ const QuizSection = () => {
     if (!currentQuiz) return;
     let updatedQuizScore = quizScore;
 
-    // tambah skor jika jawaban benar
     if (selectedAnswer === currentQuiz.questions[currentQuestion].correct) {
       updatedQuizScore += 1;
     }
@@ -102,11 +119,9 @@ const QuizSection = () => {
       setShowResult(false);
       setQuizScore(updatedQuizScore);
     } else {
-      // Quiz selesai → update leaderboard
       const updatedLeaderboard = [...leaderboard];
       const playerIndex = updatedLeaderboard.findIndex(l => l.name === playerName);
       if (playerIndex >= 0) {
-        // tambahkan skor quiz ini ke total sebelumnya
         updatedLeaderboard[playerIndex].score += updatedQuizScore;
         updatedLeaderboard[playerIndex].doneQuizzes = updatedLeaderboard[playerIndex].doneQuizzes || [];
         if (!updatedLeaderboard[playerIndex].doneQuizzes!.includes(currentQuiz.id)) {
@@ -127,7 +142,7 @@ const QuizSection = () => {
     background: "linear-gradient(135deg, rgba(251,191,211,0.2), rgba(229,231,235,0.15), rgba(22,163,74,0.2))"
   };
 
-  // Tampilan pilih quiz
+  // ==================== SELECT QUIZ ====================
   if (!currentQuiz) {
     return (
       <section id="quiz" className="py-16 px-6 relative overflow-hidden" style={sectionStyle}>
@@ -172,11 +187,10 @@ const QuizSection = () => {
     );
   }
 
-  // Tampilan quiz
+  // ==================== QUIZ ====================
   const question = currentQuiz.questions[currentQuestion];
   if (!question) return null;
 
-  // cari skor total dari leaderboard
   const playerTotalScore = leaderboard.find(l => l.name === playerName)?.score ?? 0;
 
   return (

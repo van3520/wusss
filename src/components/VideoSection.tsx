@@ -13,56 +13,56 @@ const VideoSection = () => {
 
   const videosRaw = [
     {
-      title: "Setting Financial Goals",
+      title: "Savings Goals for Kids",
       url: "https://www.youtube.com/watch?v=v-mlEQ7KW5Q",
-      description: "Learn how to set realistic financial goals and create actionable plans.",
-      duration: "15 min",
-      views: "2.1k",
+      description: "An informative resource to help you #talkmoney with your children",
+      duration: "3 min",
+      views: "97k",
+      rating: 4.9,
+      isNew: true
+    },
+    {
+      title: "Economics for Kids: Saving and Spending",
+      url: "https://www.youtube.com/watch?v=NfurkrZEn3Q",
+      description: "you'll learn about the economics concepts of spending, saving, etc.",
+      duration: "2 min",
+      views: "451k",
+      rating: 4.8,
+      isNew: true
+    },
+    {
+      title: "Who Invented Money?",
+      url: "https://www.youtube.com/watch?v=GZ7y-yFdX9M",
+      description: "The history of money is fascinating and goes back thousands of years.",
+      duration: "5 min",
+      views: "3000k",
+      rating: 4.9,
+      isNew: false
+    },{
+      title: "Literasi Keuangan untuk Remaja",
+      url: "https://youtu.be/U5cssZCvmso?si=Y1PLs62L0Y4UU9fn",
+      description: "Tumbuh menjadi remaja bisa jadi sulit, terutama dalam hal mengelola uang.",
+      duration: "6 min",
+      views: "8k",
       rating: 4.7,
       isNew: false
     },
     {
-      title: "Understanding Interest & Compound Growth",
-      url: "https://www.youtube.com/watch?v=NfurkrZEn3Q",
-      description: "Explore how interest works and the power of compound growth over time.",
-      duration: "14 min",
-      views: "1.9k",
-      rating: 4.8,
-      isNew: false
-    },
-    {
-      title: "Banking Basics for Students",
-      url: "https://www.youtube.com/watch?v=GZ7y-yFdX9M",
-      description: "Everything you need to know about choosing and using bank accounts.",
-      duration: "11 min",
-      views: "2.7k",
-      rating: 4.6,
-      isNew: false
-    },{
-      title: "Savings Basics: Getting Started",
-      url: "https://youtu.be/U5cssZCvmso?si=Y1PLs62L0Y4UU9fn",
-      description: "Learn the fundamentals of saving money and building healthy financial habits.",
-      duration: "8 min",
-      views: "2.5k",
-      rating: 4.9,
-      isNew: true
-    },
-    {
-      title: "Building Your Emergency Fund",
+      title: "Simple vs. Compound Interest",
       url: "https://www.youtube.com/watch?v=wm73kfEjBUY",
-      description: "Discover how to create and maintain an emergency fund for financial security.",
-      duration: "12 min",
-      views: "1.8k",
+      description: "Interest is where money is really made (or lost) when investing or borrowing.",
+      duration: "5 min",
+      views: "415k",
       rating: 4.8,
-      isNew: true
+      isNew: false
     },
     {
-      title: "Smart Spending Strategies",
+      title: "Apa itu Literasi Keuangan?",
       url: "https://youtu.be/a81bXkES-gg?si=HKG7pCqmcrOz44iq",
-      description: "Master the art of distinguishing between needs and wants in your spending.",
-      duration: "10 min",
-      views: "3.2k",
-      rating: 4.9,
+      description: "Bagaimana caranya agar kita bisa mengelola keuangan serta menggunakan produk finansial dengan baik?",
+      duration: "3 min",
+      views: "59k",
+      rating: 4.8,
       isNew: false
     }
   ];
