@@ -22,11 +22,11 @@ const VideoSection = () => {
       isNew: true
     },
     {
-      title: "Economics for Kids: Saving and Spending",
-      url: "https://www.youtube.com/watch?v=NfurkrZEn3Q",
-      description: "you'll learn about the economics concepts of spending, saving, etc.",
-      duration: "2 min",
-      views: "451k",
+      title: "Apa itu Literasi Keuangan?",
+      url: "https://youtu.be/a81bXkES-gg?si=HKG7pCqmcrOz44iq",
+      description: "Bagaimana caranya agar kita bisa mengelola keuangan serta menggunakan produk finansial dengan baik?",
+      duration: "3 min",
+      views: "59k",
       rating: 4.8,
       isNew: true
     },
@@ -57,11 +57,12 @@ const VideoSection = () => {
       isNew: false
     },
     {
-      title: "Apa itu Literasi Keuangan?",
-      url: "https://youtu.be/a81bXkES-gg?si=HKG7pCqmcrOz44iq",
-      description: "Bagaimana caranya agar kita bisa mengelola keuangan serta menggunakan produk finansial dengan baik?",
-      duration: "3 min",
-      views: "59k",
+    
+      title: "Economics for Kids: Saving and Spending",
+      url: "https://www.youtube.com/watch?v=NfurkrZEn3Q",
+      description: "you'll learn about the economics concepts of spending, saving, etc.",
+      duration: "2 min",
+      views: "451k",
       rating: 4.8,
       isNew: false
     }
