@@ -12,9 +12,13 @@ const features = [
 
 const EbookSection = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isImageOpen, setIsImageOpen] = useState(false);
 
   // URL PDF di folder public
   const ebookURL = "/pdf/SmartMoney.pdf";
+
+  // Image What's Inside
+  const insideImage = "../src/assets/komik.jpeg"; // ganti dengan path gambar kamu
 
   return (
     <section id="ebook" className="py-20 bg-gray-100">
@@ -78,7 +82,10 @@ const EbookSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {features.map((feature, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center p-4 bg-gray-200 rounded-xl shadow hover:shadow-xl transform hover:scale-105 transition-all">
+                <div
+                  key={idx}
+                  className="flex flex-col items-center text-center p-4 bg-gray-200 rounded-xl shadow hover:shadow-xl transform hover:scale-105 transition-all"
+                >
                   <div className="w-14 h-14 flex items-center justify-center rounded-full bg-pink-100 mb-3">
                     <feature.icon className="h-7 w-7 text-pink-400" />
                   </div>
@@ -88,18 +95,18 @@ const EbookSection = () => {
               ))}
             </div>
 
+            {/* What's Inside (Image Only) */}
             <Card className="border-2 border-green-800 bg-gray-200 rounded-xl">
               <CardHeader>
-                <CardTitle className="text-lg text-green-800">What's Inside:</CardTitle>
+                <CardTitle className="text-lg text-green-800">Comic Ebook:</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-700 text-sm">
-                  <li className="flex items-center"><div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div> Setting Up Your First Budget</li>
-                  <li className="flex items-center"><div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div> Emergency Fund Strategies</li>
-                  <li className="flex items-center"><div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div> Understanding Credit and Debt</li>
-                  <li className="flex items-center"><div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div> Investment Basics for Beginners</li>
-                  <li className="flex items-center"><div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div> Long-term Financial Planning</li>
-                </ul>
+                <img
+                  src={insideImage}
+                  alt="What's Inside Preview"
+                  className="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition"
+                  onClick={() => setIsImageOpen(true)}
+                />
               </CardContent>
             </Card>
           </div>
@@ -109,11 +116,11 @@ const EbookSection = () => {
       {/* Modal PDF */}
       {isPreviewOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="relative w-full max-w-4xl h-full bg-white rounded-xl shadow-2xl">
+          <div className="relative w-full max-w-5xl h-[90vh] bg-white rounded-xl shadow-2xl overflow-hidden">
             {/* Close Button */}
             <button
               onClick={() => setIsPreviewOpen(false)}
-              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full z-50"
+              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full z-[60] shadow-lg"
             >
               <X className="h-5 w-5" />
             </button>
@@ -121,8 +128,30 @@ const EbookSection = () => {
             {/* PDF Viewer */}
             <iframe
               src={ebookURL}
-              className="w-full h-full rounded-xl"
+              className="w-full h-full"
               title="E-book Preview"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Modal Image */}
+      {isImageOpen && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-xl shadow-2xl overflow-auto">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsImageOpen(false)}
+              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full z-[60] shadow-lg"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Image Preview */}
+            <img
+              src={insideImage}
+              alt="What's Inside Preview"
+              className="w-full h-auto rounded-lg"
             />
           </div>
         </div>

@@ -13,6 +13,32 @@ const VideoSection = () => {
 
   const videosRaw = [
     {
+      title: "Setting Financial Goals",
+      url: "https://www.youtube.com/watch?v=v-mlEQ7KW5Q",
+      description: "Learn how to set realistic financial goals and create actionable plans.",
+      duration: "15 min",
+      views: "2.1k",
+      rating: 4.7,
+      isNew: false
+    },
+    {
+      title: "Understanding Interest & Compound Growth",
+      url: "https://www.youtube.com/watch?v=NfurkrZEn3Q",
+      description: "Explore how interest works and the power of compound growth over time.",
+      duration: "14 min",
+      views: "1.9k",
+      rating: 4.8,
+      isNew: false
+    },
+    {
+      title: "Banking Basics for Students",
+      url: "https://www.youtube.com/watch?v=GZ7y-yFdX9M",
+      description: "Everything you need to know about choosing and using bank accounts.",
+      duration: "11 min",
+      views: "2.7k",
+      rating: 4.6,
+      isNew: false
+    },{
       title: "Savings Basics: Getting Started",
       url: "https://youtu.be/U5cssZCvmso?si=Y1PLs62L0Y4UU9fn",
       description: "Learn the fundamentals of saving money and building healthy financial habits.",
@@ -23,7 +49,7 @@ const VideoSection = () => {
     },
     {
       title: "Building Your Emergency Fund",
-      url: "https://youtu.be/d897x30aPVU?si=A37ov-h31wT_O5nA",
+      url: "https://www.youtube.com/watch?v=wm73kfEjBUY",
       description: "Discover how to create and maintain an emergency fund for financial security.",
       duration: "12 min",
       views: "1.8k",
@@ -37,33 +63,6 @@ const VideoSection = () => {
       duration: "10 min",
       views: "3.2k",
       rating: 4.9,
-      isNew: false
-    },
-    {
-      title: "Setting Financial Goals",
-      url: "https://www.youtube.com/watch?v=GunNWmx9aUI",
-      description: "Learn how to set realistic financial goals and create actionable plans.",
-      duration: "15 min",
-      views: "2.1k",
-      rating: 4.7,
-      isNew: false
-    },
-    {
-      title: "Understanding Interest & Compound Growth",
-      url: "https://www.youtube.com/watch?v=ExJciVqahTw",
-      description: "Explore how interest works and the power of compound growth over time.",
-      duration: "14 min",
-      views: "1.9k",
-      rating: 4.8,
-      isNew: false
-    },
-    {
-      title: "Banking Basics for Students",
-      url: "https://www.youtube.com/watch?v=IUGg5mVUUq4",
-      description: "Everything you need to know about choosing and using bank accounts.",
-      duration: "11 min",
-      views: "2.7k",
-      rating: 4.6,
       isNew: false
     }
   ];
